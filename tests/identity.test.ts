@@ -35,13 +35,19 @@ describe("formal plugin manifest", () => {
     expect(manifest).toMatchObject({
       id: FORMAL_PLUGIN_ID,
       name: "Matrix Engine",
-      version: "0.0.1",
+      version: "0.1.0",
       minAppVersion: "1.11.4",
       author: "Opus",
       isDesktopOnly: true
     });
     expect(manifest).not.toHaveProperty("authorUrl");
     expect(manifest).not.toHaveProperty("fundingUrl");
+  });
+
+  it("maps every released version to its minimum app version", () => {
+    const manifest = readManifest();
+    const versions = JSON.parse(readFileSync(resolve("versions.json"), "utf8")) as Record<string, string>;
+    expect(versions[manifest.version]).toBe(manifest.minAppVersion);
   });
 
   it("keeps the Chinese name presentation-only", () => {

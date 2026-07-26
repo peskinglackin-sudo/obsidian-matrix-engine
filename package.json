@@ -1,7 +1,7 @@
 {
   "name": "matrix-engine",
-  "version": "0.0.1",
-  "description": "Matrix Engine Obsidian desktop plugin and architecture feasibility harness",
+  "version": "0.1.0",
+  "description": "Matrix Engine Obsidian desktop plugin: local-first multilingual retrieval and knowledge connections",
   "private": true,
   "license": "Apache-2.0",
   "author": "Opus",
