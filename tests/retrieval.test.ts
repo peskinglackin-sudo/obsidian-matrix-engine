@@ -4,7 +4,7 @@ import { analyzeText, type AnalyzerOptions } from "../src/analysis/analyzer";
 import { analyzePath } from "../src/analysis/identifier";
 import { findVerified } from "../src/retrieval/exact";
 import { aggregateBySource, diversifyBySource, fuseCandidates } from "../src/retrieval/fusion";
-import { SearchService, DEFAULT_FIELD_WEIGHTS, type SearchOptions } from "../src/retrieval/service";
+import { SearchService, type SearchOptions } from "../src/retrieval/service";
 import { MemoryStorageAdapter } from "../src/storage/adapter";
 import type { ChunkRecord, SourceRecord } from "../src/storage/contracts";
 import { LocalArtifactStore } from "../src/storage/local-store";

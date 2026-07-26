@@ -32,7 +32,7 @@ export type FusedCandidate = Readonly<{
   semanticHit?: VectorHit;
 }>;
 
-type Mutable = {
+interface Mutable {
   key: string;
   rowId?: string;
   sourceId: string;
@@ -43,7 +43,7 @@ type Mutable = {
   exactHit?: ExactHit;
   lexicalHit?: LexicalHit;
   semanticHit?: VectorHit;
-};
+}
 
 export function fuseCandidates(input: Readonly<{
   exact?: readonly ExactHit[];
