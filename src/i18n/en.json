@@ -1,0 +1,8 @@
+{
+  "plugin.name": "Matrix Engine",
+  "spike.command.open": "Open platform probe status",
+  "spike.command.run": "Run approved platform probe",
+  "spike.error": "Error code: {code}",
+  "spike.status": "Status: {status}; phase: {phase}; checkpoints: {count}",
+  "spike.title": "Matrix Engine Spike"
+}

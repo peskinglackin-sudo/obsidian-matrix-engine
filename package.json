@@ -1,0 +1,50 @@
+{
+  "name": "matrix-engine",
+  "version": "0.0.1",
+  "description": "Matrix Engine Obsidian desktop plugin and architecture feasibility harness",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Opus",
+  "type": "module",
+  "packageManager": "pnpm@11.1.3",
+  "engines": {
+    "node": ">=22.13.0 <23",
+    "pnpm": "11.1.3"
+  },
+  "scripts": {
+    "build": "node esbuild.config.mjs production",
+    "dev": "node esbuild.config.mjs development",
+    "lint": "eslint . --max-warnings=0",
+    "package:spike": "node scripts/package-spike.mjs",
+    "platform:report": "node --import=tsx spike/platform-runner/cli.ts",
+    "platform:prepare": "node --import=tsx spike/platform-runner/operator.ts prepare",
+    "platform:finalize": "node --import=tsx spike/platform-runner/operator.ts finalize",
+    "spike:fts": "node --import=tsx spike/fts/cli.ts",
+    "spike:lexical": "node --import=tsx spike/lexical/cli.ts",
+    "spike:provider-live": "node --import=tsx spike/providers/live.ts",
+    "spike:semantic": "node --import=tsx spike/semantic/cli.ts",
+    "spike:ann": "node --import=tsx spike/ann/cli.ts",
+    "spike:licenses": "node --import=tsx spike/licenses/inventory.ts",
+    "spike:local-gpu": "node --import=tsx spike/local-gpu/runner.ts",
+    "spike:report": "node --import=tsx spike/report/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "verify:artifact": "node scripts/verify-artifact.mjs"
+  },
+  "dependencies": {
+    "@lancedb/lancedb": "0.31.0",
+    "apache-arrow": "18.1.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "22.20.1",
+    "esbuild": "0.28.1",
+    "eslint": "10.0.1",
+    "obsidian": "1.13.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.64.0",
+    "tsx": "4.21.0",
+    "vitest": "4.1.10"
+  }
+}

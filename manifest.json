@@ -1,0 +1,9 @@
+{
+  "id": "matrix-engine",
+  "name": "Matrix Engine",
+  "version": "0.0.1",
+  "minAppVersion": "1.11.4",
+  "description": "Private architecture feasibility build for local-first multilingual retrieval.",
+  "author": "Opus",
+  "isDesktopOnly": true
+}

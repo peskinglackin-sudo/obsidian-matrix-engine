@@ -1,0 +1,14 @@
+import { writeFile, mkdir } from "node:fs/promises";
+import { join } from "node:path";
+import process from "node:process";
+import { buildLexicalFixtures } from "./fixtures";
+import { evaluateLexical } from "./metrics";
+import { runReferenceLexical } from "./store";
+import { canonicalJson } from "../evidence/canonical";
+const fixtures = buildLexicalFixtures();
+const groups = evaluateLexical(fixtures.queries, runReferenceLexical(fixtures.documents, fixtures.queries));
+const pass = groups.every((group) => group.pass);
+await mkdir("reports/lexical", { recursive: true });
+await writeFile(join("reports/lexical", "reference.json"), canonicalJson({ schemaVersion: 1, status: pass ? "pass" : "fail", fixtureSha256: fixtures.sha256, documentCount: fixtures.documents.length, queryCount: fixtures.queries.length, groups }), { mode: 0o600 });
+process.stdout.write(`${pass ? "pass" : "fail"} ${fixtures.sha256}\n`);
+if (!pass) process.exitCode = 1;

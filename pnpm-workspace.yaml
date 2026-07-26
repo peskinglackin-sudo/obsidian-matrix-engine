@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  onnxruntime-node: false
+  protobufjs: false
+  sharp: false
+
+strictDepBuilds: true

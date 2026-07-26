@@ -1,0 +1,18 @@
+.codegraph
+
+# Local credentials and environment configuration
+.envrc
+
+# Dependency and build outputs
+node_modules/
+main.js
+dist/
+reports/
+coverage/
+*.tsbuildinfo
+
+# Spike-local models, databases, and native build trees
+*.gguf
+*.lance/
+.spike-work/
+vendor-build/

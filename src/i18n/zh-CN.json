@@ -1,0 +1,8 @@
+{
+  "plugin.name": "矩阵引擎",
+  "spike.command.open": "打开平台验证状态",
+  "spike.command.run": "运行已批准的平台验证",
+  "spike.error": "错误代码：{code}",
+  "spike.status": "状态：{status}；阶段：{phase}；检查点：{count}",
+  "spike.title": "矩阵引擎技术验证"
+}
