@@ -405,6 +405,26 @@ export class LocalArtifactStore implements VectorStore, LexicalStore, ChunkReade
     return true;
   }
 
+  /** Metadata-only refresh (PRD 14.4): raw content unchanged, update stat fields. */
+  touchSource(sourceId: string, update: Readonly<{ mtime: number; size: number; revision: number }>): boolean {
+    const source = this.#sources.get(sourceId);
+    if (source === undefined || source.sourceRevision > update.revision) return false;
+    this.#insertSource(Object.freeze({ ...source, mtime: update.mtime, size: update.size, sourceRevision: update.revision, updatedAt: this.#now() }));
+    const rowIds = this.#chunksBySource.get(sourceId);
+    if (rowIds !== undefined) {
+      for (const rowId of rowIds) {
+        const chunk = this.#chunks.get(rowId);
+        if (chunk !== undefined) this.#chunks.set(rowId, Object.freeze({ ...chunk, mtime: update.mtime, sourceRevision: update.revision }));
+      }
+    }
+    const manifest = this.#manifest.get(sourceId);
+    if (manifest !== undefined) {
+      this.#manifest.set(sourceId, Object.freeze({ ...manifest, seenRevision: update.revision, indexedRevision: update.revision, updatedAt: this.#now() }));
+    }
+    this.#dirty = true;
+    return true;
+  }
+
   attachEmbedding(rowId: string, embeddingInputHash: string, embedding: Float32Array): boolean {
     const chunk = this.#chunks.get(rowId);
     // Stale guard: the row may have been re-written while the embedding was
