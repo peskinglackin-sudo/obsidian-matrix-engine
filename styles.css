@@ -1,0 +1,234 @@
+/* Matrix Engine plugin styles */
+
+.matrix-engine-lookup,
+.matrix-engine-connections {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--size-4-2);
+}
+
+.matrix-engine-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  align-items: center;
+}
+
+.matrix-engine-mode-group,
+.matrix-engine-type-group {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.matrix-engine-mode.is-active,
+.matrix-engine-type.is-active {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.matrix-engine-query {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-1);
+}
+
+.matrix-engine-input {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.matrix-engine-buttons {
+  display: flex;
+  gap: var(--size-4-2);
+}
+
+.matrix-engine-notices {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.matrix-engine-degraded {
+  color: var(--text-warning);
+  font-size: var(--font-ui-smaller);
+  padding: var(--size-4-1) 0;
+}
+
+.matrix-engine-results,
+.matrix-engine-connections-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.matrix-engine-result {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: var(--size-4-2);
+  cursor: pointer;
+}
+
+.matrix-engine-result.is-selected {
+  border-color: var(--interactive-accent);
+  background-color: var(--background-secondary);
+}
+
+.matrix-engine-result.is-pinned {
+  border-left: 3px solid var(--interactive-accent);
+}
+
+.matrix-engine-result-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--size-4-2);
+}
+
+.matrix-engine-result-rank {
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+  min-width: 1.5em;
+}
+
+.matrix-engine-result-title {
+  font-weight: var(--font-semibold);
+  flex: 1;
+}
+
+.matrix-engine-result-lang,
+.matrix-engine-result-score {
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+}
+
+.matrix-engine-result-path {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.matrix-engine-result-reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-1);
+  margin-top: var(--size-4-1);
+}
+
+.matrix-engine-reason {
+  background-color: var(--background-secondary-alt);
+  border-radius: var(--radius-s);
+  padding: 0 var(--size-4-1);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.matrix-engine-result-snippet {
+  margin-top: var(--size-4-1);
+  font-size: var(--font-ui-small);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 8em;
+  overflow: hidden;
+}
+
+.matrix-engine-result-snippet mark {
+  background-color: var(--text-highlight-bg);
+  color: inherit;
+}
+
+.matrix-engine-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-1);
+  margin-top: var(--size-4-2);
+}
+
+.matrix-engine-result-actions button {
+  font-size: var(--font-ui-smaller);
+  padding: 0 var(--size-4-2);
+}
+
+.matrix-engine-status {
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: var(--size-4-1);
+  color: var(--text-faint);
+  font-size: var(--font-ui-smaller);
+}
+
+.matrix-engine-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--size-4-4);
+}
+
+.matrix-engine-connections-header {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.matrix-engine-settings-nav {
+  display: flex;
+  gap: var(--size-4-1);
+  margin-bottom: var(--size-4-3);
+}
+
+.matrix-engine-settings-nav button.is-active {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.matrix-engine-endpoint {
+  margin-top: var(--size-4-1);
+  font-size: var(--font-ui-smaller);
+}
+
+.matrix-engine-endpoint-local {
+  color: var(--text-success);
+}
+
+.matrix-engine-endpoint-remote_https {
+  color: var(--text-warning);
+}
+
+.matrix-engine-endpoint-remote_plaintext {
+  color: var(--text-error);
+  font-weight: var(--font-semibold);
+}
+
+.matrix-engine-send-preview {
+  margin-top: var(--size-4-2);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: var(--size-4-2);
+}
+
+.matrix-engine-send-preview pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: var(--font-ui-smaller);
+  background-color: var(--background-secondary);
+  padding: var(--size-4-1);
+}
+
+.matrix-engine-local-notice {
+  border-left: 3px solid var(--text-warning);
+  padding: var(--size-4-1) var(--size-4-2);
+  margin-bottom: var(--size-4-2);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.matrix-engine-test-results {
+  margin: var(--size-4-2) 0;
+  font-size: var(--font-ui-small);
+}
+
+.matrix-engine-capability {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  margin-top: var(--size-4-1);
+}
